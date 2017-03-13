@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+# zhzh2001的网站
 
-You can use the [editor on GitHub](https://github.com/zhzh2001/zhzh2001.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## 介绍
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+主要用于发表**原创**题解，以及其他有趣的总结；内容将不会很多。
 
-### Markdown
+## 文章
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
 
-```markdown
-Syntax highlighted code block
+## 限制
 
-# Header 1
-## Header 2
-### Header 3
+这只是个个人网站，**且目前处于测试期** 。
 
-- Bulleted
-- List
+以下简要总结了`Github Pages`有关的限制，详细请参见https://help.github.com/articles/what-is-github-pages/#usage-limits
 
-1. Numbered
-2. List
+- 每月带宽不超过100GB
+- 每小时更新不超过10次
 
-**Bold** and _Italic_ and `Code` text
+## 历史
 
-[Link](url) and ![Image](src)
+以下按照时间顺序排列：
+
+- 创建于2017/3/11
+- 首次加入内容于2017/3/13
+
+## 测试
+
+> 这部分内容仅测试用
+
+$C_m^n=\frac{\prod\limits_{m-n+1}^m}{n!}$ [^choose] *怎么不支持数学公式！*
+
+- [x] 组合数公式
+- [ ] 阶乘公式
+
+这是一个`hello, world`
+
+```cpp
+#include<iostream>
+using namespace std;
+int main()
+{
+    cout<<"hello, world\n";
+    return 0;
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+| 名称           | 版本    | 体系   | 版本   |
+| ------------ | ----- | ---- | ---- |
+| Windows 10   | 15055 | x64  | 专业版  |
+| Ubuntu Linux | 14.04 | x86  | LTS  |
+| Windows Bash | 16.04 | x64  | LTS  |
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zhzh2001/zhzh2001.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[^choose]: 组合数公式
