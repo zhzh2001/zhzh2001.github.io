@@ -73,7 +73,9 @@
 
 > 这部分内容仅测试用
 
-![](https://latex.codecogs.com/gif.latex?f_n=\sum\limits_{i=0}^{n-1}f_i*f_{n-i-1}) [^choose] ~~怎么不支持数学公式！~~
+{% include mathjax.html %}
+
+$f_n=\sum\limits_{i=0}^{n-1}f_i*f_{n-i-1}$ [^choose] ~~怎么不支持数学公式！~~
 
 - [x] 组合数公式
 - [ ] 阶乘公式
