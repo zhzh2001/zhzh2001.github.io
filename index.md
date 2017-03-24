@@ -23,13 +23,21 @@ title: zhzh2001的网站β
 
 > 以下排列顺序为发布时间，直接复制从聊天记录
 
-[萌呆农大](http://blog.csdn.net/mdnd1234)
+[mdnd1234的博客](http://blog.csdn.net/mdnd1234)
 
-[jzqjzq](http://blog.csdn.net/jzq233jzq)
+[jzq233jzq](http://blog.csdn.net/jzq233jzq)
 
 [GTA5](https://swwind.github.io)
 
 [szb](https://shenzhebei.github.io)
+
+[zhouyuyang233的博客](http://blog.csdn.net/zhouyuyang233)
+
+[Fop_zz的博客](http://blog.csdn.net/fop_zz)
+
+[很颓废largecube233很颓废](http://blog.csdn.net/largecub233)
+
+[Littlewhite's blog](https://liangziqi.github.io/)
 
 我用于创建文章的编辑器[Typora](https://typora.io/)
 
