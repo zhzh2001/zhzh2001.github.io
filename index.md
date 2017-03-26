@@ -1,6 +1,6 @@
 ---
 layout: default
-title: zhzh2001的网站β
+title: 首页
 ---
 
 ## 介绍
