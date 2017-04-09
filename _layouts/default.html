@@ -16,7 +16,7 @@
       <h1 class="project-name">{{ page.title | default: site.github.repository_name }}::{{ site.title }}</h1>
 	  <h2 class="description">{{ site.description | default: site.github.repository_name }}</h2>
     </section>
-	<a href="/">首页</a>
+	<a name="top" href="/">首页</a>
 	<a href="/list">文章列表</a>
 	<a href="/history">历史</a>
 	<a href="/test">测试</a>
@@ -24,5 +24,6 @@
     <section class="main-content">
       {{ content }}
     </section>
+	<a href="#top">返回顶部</a>
   </body>
 </html>
