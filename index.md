@@ -7,9 +7,7 @@ title: 首页
 
 主要用于发表**原创**题解，以及其他有趣的总结；内容将不会很多。
 
-采用`Github`默认的*将纯文本转换为静态博客网站*的[`jekyll`][jekyll]技术，~~完全用`Markdown`完成~~(除了*文章列表*为`HTML`)
-
-使用的主题为[`Cayman`](https://github.com/pages-themes/cayman)
+采用`Github`默认的*将纯文本转换为静态博客网站*的[`jekyll`][jekyll]技术，使用的主题为[`Cayman`](https://github.com/pages-themes/cayman)
 
 ## 代码仓库
 
