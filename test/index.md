@@ -24,6 +24,16 @@ int main()
 }
 ```
 
+{% highlight cpp linenos %}
+#include<iostream>
+using namespace std;
+int main()
+{
+    cout<<"hello, world\n";
+    return 0;
+}
+{% endhighlight %}
+
 | 名称           | 版本    | 体系   | 版本   |
 | ------------ | ----- | ---- | ---- |
 | Windows 10   | 15055 | x64  | 专业版  |
