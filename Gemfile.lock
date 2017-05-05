@@ -19,7 +19,6 @@ GEM
     execjs (2.7.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.18)
     ffi (1.9.18-x86-mingw32)
     forwardable-extended (2.6.0)
     gemoji (3.0.0)
@@ -167,8 +166,6 @@ GEM
     minitest (5.10.1)
     multipart-post (2.0.0)
     net-dns (0.8.0)
-    nokogiri (1.7.1)
-      mini_portile2 (~> 2.1.0)
     nokogiri (1.7.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     octokit (4.7.0)
@@ -195,7 +192,6 @@ GEM
     unicode-display_width (1.1.3)
 
 PLATFORMS
-  ruby
   x86-mingw32
 
 DEPENDENCIES
