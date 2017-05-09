@@ -1,0 +1,269 @@
+---
+layout: post
+tags: 题解
+---
+
+## 题目描述
+
+> 翻译都很乱，我自己翻译题目
+
+给出一个`COWBASIC`程序，所有运算对$10^9+7$取模，求返回的结果。
+
+### `COWBASIC`语言
+
+- 有三种*语句*：
+
+```
+<变量名> = <表达式>
+
+<字面值> MOO {
+<语句列表>
+}
+
+RETURN <变量名>
+```
+
+- *变量名*为长度不超过10的小写字符串
+- *字面值*为不超过100000的正整数
+- *语句列表*为一个或多个语句
+- 有三种*表达式*：
+
+```
+<字面值>
+
+<变量名>
+
+( <表达式> ) + ( <表达式> )
+```
+
+- 保证*表达式*中或返回的变量在使用前已经定义
+- 保证返回在程序最后一行
+
+### 数据范围
+
+- 其中20%的数据，循环不嵌套
+- 另外20%的数据，只有一个变量
+- 对于100%的数据，程序不超过100行，每行不超过350个字符
+
+### 样例
+
+#### #1
+
+##### 输入
+
+```
+x = 1
+10 MOO {
+  x = ( x ) + ( x )
+}
+RETURN x
+```
+
+##### 输出
+
+> 1024
+
+##### 解释
+
+计算$2^{10}$
+
+#### #2
+
+##### 输入
+
+```
+n = 1
+nsq = 1
+100000 MOO {
+  100000 MOO {
+    nsq = ( nsq ) + ( ( n ) + ( ( n ) + ( 1 ) ) )
+    n = ( n ) + ( 1 )
+  }
+}
+RETURN nsq
+```
+
+##### 输出
+
+> 4761
+
+##### 解释
+
+计算$(10^5*10^5+1)^2$
+
+## 题解
+
+初看这道题感觉十分难做，除了麻烦的语法分析，还需要优化循环。
+
+[官方题解](http://www.usaco.org/current/data/sol_cowbasic_platinum_open17.html)
+
+> 官方标程好像有问题。
+
+### 循环不嵌套
+
+此时直接模拟即可，最多只有50个循环。
+
+### 只有一个变量
+
+当只有一个变量的时候，可以得到一个通项公式，但实际**并不实用**。具体可参考官方题解。
+
+### 使用矩阵乘法
+
+理论上，通过公式也可以做这道题，但是用矩阵乘法更加简洁。
+
+#### 构造转移矩阵
+
+矩阵中包含各个变量的转移关系。对于矩阵A和B，先后执行等价于乘以A\*B。而A循环n次则等价于乘以$A^n$。
+
+对于`nsq = ( nsq ) + ( ( n ) + ( ( n ) + ( 1 ) ) )`，构造矩阵为
+
+|      | 1    | n    | nsq  |
+| ---- | ---- | ---- | ---- |
+| 1    | 1    |      |      |
+| n    |      | 1    |      |
+| nsq  | 1    | 2    | 1    |
+
+
+注意转移**没有被赋值**的量。
+
+另外，**直接忽略表达式中的括号**，因为加法没有优先级问题。
+
+#### 处理嵌套循环
+
+维护一个栈，保存每层循环的结果和循环次数。
+
+有新循环时，压入一个单位矩阵；循环退出时，弹出栈顶，执行快速幂，并与下一层相乘。
+
+#### 时间复杂度
+
+矩阵大小不超过100x100，最多有50个循环，每个循环最多计算$log_2(10^5) \sim 17$次矩阵乘法。实际上运算量不到1亿，可以轻松通过。
+
+## 代码
+
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int N=105,MOD=1e9+7;
+int n,cnt[N];
+//cnt[]保存每层循环的次数
+struct matrix
+{
+	long long mat[N][N];
+	matrix()
+	{
+		memset(mat,0,sizeof(mat));
+	}
+	matrix operator*(const matrix& rhs)const
+	{
+		matrix ans;
+		for(int i=1;i<=n;i++)
+			for(int k=1;k<=n;k++)
+				for(int j=1;j<=n;j++)
+				{
+					ans.mat[i][j]=(ans.mat[i][j]+mat[i][k]*rhs.mat[k][j])%MOD;
+					assert(ans.mat[i][j]>=0);
+				}
+		return ans;
+	}
+	matrix operator*=(const matrix& rhs)
+	{
+		return *this=*this*rhs;
+	}
+}S[N];
+//矩阵栈
+matrix I()
+{
+	matrix ans;
+	for(int i=1;i<=n;i++)
+		ans.mat[i][i]=1;
+	return ans;
+}
+//单位矩阵
+matrix qpow(matrix a,int b)
+{
+	matrix ans=I();
+	do
+	{
+		if(b&1)
+			ans*=a;
+		a*=a;
+	}
+	while(b/=2);
+	return ans;
+}
+//矩阵快速幂
+string code[N];
+template<typename T>
+inline T get_token(const string& s)
+{
+	stringstream ss(s);
+	T ret;
+	ss>>ret;
+	return ret;
+}
+//将字符串s中的下一个内容转换为T
+int main()
+{
+	map<string,int> var;
+  	//保存变量名对应的编号
+	var["1"]=1;
+	//没什么用
+	int lines=0;
+	n=1;
+	while(getline(cin,code[++lines]))
+		if(code[lines].find('=')!=string::npos)
+		{
+			string name=get_token<string>(code[lines]);
+          	//题目保证所有变量都会为左值
+			if(var.find(name)==var.end())
+				var[name]=++n;
+		}
+	lines--;
+	int sp=1;
+	S[sp]=I();
+	for(int i=1;i<=lines;i++)
+		if(code[i].substr(0,6)=="RETURN")
+			cout<<S[sp].mat[var[get_token<string>(code[i].substr(6))]][1]<<endl;
+			//运算结果保存在矩阵第一列中
+		else
+			if(code[i].find("MOO")!=string::npos)
+              //新循环
+			{
+				S[++sp]=I();
+				cnt[sp]=get_token<int>(code[i]);
+			}
+			else
+				if(code[i].find('}')!=string::npos)
+                  //循环结束
+				{
+					S[sp-1]=qpow(S[sp],cnt[sp])*S[sp-1];
+					sp--;
+				}
+				else
+				{
+					matrix now;
+					int row=var[get_token<string>(code[i])],p=code[i].find('=')+1;
+					stringstream ss(code[i].substr(p));
+					string token;
+					while(ss>>token)
+					{
+						if(isdigit(token[0]))
+							now.mat[row][1]+=get_token<int>(token);
+                      		//累加常数
+						else
+							if(isalpha(token[0]))
+								now.mat[row][var[token]]++;
+                      			//累加变量
+					}
+					for(int i=1;i<=n;i++)
+						if(i!=row)
+							now.mat[i][i]=1;
+                  //转移未赋值的量
+					S[sp]=now*S[sp];
+				}
+	return 0;
+}
+```
+
+语法分析时应该充分利用空格，同时也要防止多余的空格。
+
