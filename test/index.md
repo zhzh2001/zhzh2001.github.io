@@ -24,7 +24,12 @@ int main()
 }
 ```
 
+$\color{gray}\text{gray}\;\color{blue}\text{blue}\;\color{green}\text{green}\;\color{#f70}\text{orange}\;\color{red}\text{red}$
+
+<u>underline</u>
+
 {% highlight cpp linenos %}
+
 #include<iostream>
 using namespace std;
 int main()
