@@ -24,7 +24,7 @@ int main()
 }
 ```
 
-$\color{gray}\text{gray}\;\color{blue}\text{blue}\;\color{green}\text{green}\;\color{#f70}\text{orange}\;\color{red}\text{red}$
+${\color{red}{red}},{\color{#f70}{test}}$
 
 <u>underline</u>
 
