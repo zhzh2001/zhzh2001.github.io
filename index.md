@@ -11,7 +11,7 @@ title: 首页
 
 ## 代码仓库
 
-欢迎访问我的`代码仓库`@[github](https://github.com/zhzh2001/Learning) ，包含2017年起的**所有代码**。
+欢迎访问我的`代码仓库`@[bitbucket](https://bitbucket.org/zhzh2001/learning) ，包含2017年起的**所有代码**。
 
 ### 其他仓库
 
@@ -21,19 +21,19 @@ title: 首页
 
 > 以下排列顺序为发布时间，直接复制从聊天记录
 
-[mdnd1234的博客](http://blog.csdn.net/mdnd1234)
+[mdnd](http://blog.csdn.net/mdnd1234)
 
-[jzq233jzq](http://blog.csdn.net/jzq233jzq)
+[jzq](http://blog.csdn.net/jzq233jzq)
 
-[GTA5](https://swwind.github.io)
+[SWWind](https://swwind.github.io)
 
 [szb](https://shenzhebei.github.io)
 
-[zhouyuyang233的博客](http://blog.csdn.net/zhouyuyang233)
+[zhouyuyang](http://blog.csdn.net/zhouyuyang233)
 
-[Fop_zz的博客](http://blog.csdn.net/fop_zz)
+[Fop_zz](http://blog.csdn.net/fop_zz)
 
-[很颓废largecube233很颓废](http://blog.csdn.net/largecub233)
+[largecube](http://blog.csdn.net/largecub233)
 
 [Littlewhite's blog](https://liangziqi.github.io/)
 
