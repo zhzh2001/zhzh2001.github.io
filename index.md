@@ -25,7 +25,7 @@ title: 首页
 
 [jzq](http://blog.csdn.net/jzq233jzq)
 
-[SWWind](https://swwind.github.io)
+[SW_Wind](https://swwind.github.io)
 
 [szb](https://shenzhebei.github.io)
 
