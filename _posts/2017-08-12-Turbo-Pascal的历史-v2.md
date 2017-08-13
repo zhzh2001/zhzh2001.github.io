@@ -170,11 +170,11 @@ TP1引入了*Mark*和*Release*来代替*Dispose*。*Mark(Var)*将堆指针保存
 
 # 版本比较
 
-## 1.0
+## 1.0(1983)
 
 1.0没有DOS版本，并且找不到有关文档。
 
-## 2.0
+## 2.0(1984)
 
 ![](/img/tp2.png)
 
@@ -294,7 +294,7 @@ end;
 
 这个版本的TP2无法找到。根据文档，这个版本必须有8087浮点协处理器才能使用，并且用64位的实数代替默认的(其实就是`double`)，具有更高的精度和更快的速度。
 
-## 3.0
+## 3.0(1985)
 
 ![](/img/tp3disk.jpg)
 
@@ -305,4 +305,193 @@ end;
 ### 文件
 
 TP3的文件比2.0稍微大一些。我找到的是带有BCD和8087的版本，分别为TURBOBCD.COM和TURBO-87.COM。
+
+### 速度改进
+
+2.0和3.0都提供了一个很大的示例CALC.PAS，有30+KB。下面是一个估测比较(IBM AT 286/6)：
+
+|      | 加载时间 | 编译到内存 | 编译到文件 |
+| ---- | ---- | ----- | ----- |
+| 2.0  | 2s   | 8s    | 10s   |
+| 3.0  | <1s  | 4s    | 4s    |
+
+可以看出有不少改进。
+
+### 海龟图形(Turtlegraphics)
+
+海龟图形基于“海龟”的概念，“海龟”可以向特定角度移动特定距离，并绘制图形。海龟图形需要在窗口中操作。可以参考示例TURTLE.PAS。注意，编译时同一目录下应该有GRAPH.P和GRAPH.BIN文件。
+
+![](/img/tp3turtle.png)
+
+### 目录操作
+
+提供了*ChDir*,*MkDir*,*RmDir*和*GetDir*来实现目录相关的操作，前三个过程和DOS一样，*GetDir(Drive,Str)*获取*Drive*的当前目录到*Str*。*Drive*是一个整数，0表示当前目录，1表示A，……可以参考DIRECT.PAS。
+
+### 获取命令行参数
+
+提供了*ParamCount*和*ParamStr*来获取命令行参数，其实与C的*argc*和*argv*一样。可以参考示例CMDLIN.PAS。
+
+### Turbo-BCD
+
+Turbo-BCD利用BCD来存储浮点数，以避免十进制的误差。例如，十进制0.1在二进制下无法精确表示，但是可以用十进制浮点数(BCD)精确表示。
+
+Turbo-BCD不能使用*Sin*,*Cos*,*ArcTan*,*Ln*,*Exp*,*Sqrt*和*Pi*，不包含这些标识符的Pascal程序都能用Turbo-BCD编译。BCD浮点数的范围为$\vert R\vert\in10^{-63}\dots10^{63}$，有效位数18位，占用10字节空间。BCD浮点数可以用*Form*函数来格式化，具体参见手册。
+
+可以用BCD.PAS来演示Turbo-BCD的优势。使用TURBO.COM编译的结果：
+
+![](/img/tp3bcd1.png)
+
+使用TURBOBCD.COM：
+
+![](/img/tp3bcd.png)
+
+![](/img/tp3bcd2.png)
+
+### Turbo-87
+
+与2.0的基本一样，也需要8087协处理器。我在没有x87的IBM AT(286)上运行，结果是一个无效的浮点数。因此，必须在有数学协处理器的PC上测试。由于PCem暂时没有独立的模拟x87的开关，所以我用486DX，也就是最早内置x87的CPU了。
+
+演示Turbo-87的有HILB.PAS和TEST.PAS，下面使用TEST.PAS，可以比较速度和精度。我包含了我自己写的计时库TIMER.PAS。使用TURBO.COM：
+
+![](/img/tp3x87a.png)
+
+使用TURBO-87.COM：
+
+![](/img/tp3x87.png)
+
+![](/img/tp3x87b.png)
+
+使用以下代码的结果为1.644903548804433，与Turbo-87基本一致：
+
+```c++
+#include <iostream>
+#include <limits>
+using namespace std;
+int main()
+{
+	int n;
+	cin >> n;
+	double ans = .0;
+	for (int i = 1; i <= n; i++)
+		ans += 1.0 / (i * i);
+	cout.precision(numeric_limits<double>::digits10);
+	cout << fixed << ans << endl;
+	return 0;
+}
+```
+
+## 4.0(1987)
+
+![](/img/tp4ui.png)
+
+![](/img/tp4man.png)
+
+### 文件
+
+我找到的是3张360KB软盘的版本，最好把所有文件复制到同一个目录下。可以发现可执行文件已经从.COM变成.EXE了，下面列举部分重要的文件：
+
+- TURBO.EXE：提供IDE，115KB
+- TURBO.TPL：标准单元，37KB
+- GRAPH.TPU：*Graph*单元，27KB
+- TPC.EXE：命令行编译器，42KB
+- MAKE.EXE：自动更新修改的程序，19KB
+
+### 使用
+
+TP4已经有菜单了，看起来比前几个版本好多了。但是那个Output窗口很讨厌，按F5可以关掉。切换到菜单可以用Alt+高亮字母，也可以用F10，在PCem中还是用F10比较好，因为前者也会触发PCem的菜单。按ESC就可以退到编辑窗口。
+
+#### ARTY4.PAS
+
+ART.PAS也升级了！
+
+![](/img/tp4com.png)
+
+![](/img/tp4art.png)
+
+编译到文件生成的ARTY4.EXE有24,384字节，比2.0大了很多。
+
+### 升级早期程序
+
+UPGRADE.EXE用于完成这一功能，我用3.0的CALC.PAS试了，原始文件被重命名为CALC.3TP。不过编译升级后的文件也用了4s，没有手册所说的速度提升。不过，MCALC.PAS提供的MicroCalc比以前的高级多了。不但增加了颜色，而且再次编译很快，因为采用了MAKE.EXE。
+
+![](/img/tp3calc.png)
+
+![](/img/tp4calc.png)
+
+### 代码生成优化
+
+我同时也升级了TEST8087.PAS及TIMER.PAS，用*Dos*单元的*GetTime*重写，并把我的*GetTime*重命名为*myGetTime*，这样就可以了。当然，我准备把TIMER.PAS写成单元的格式。
+
+用32767运行，不使用8087，3.0用了42s，4.0用了32.5s，改进还是很明显的。
+
+### 单元和Make
+
+单元是4.0最大的改进，单元中可以提供各种接口。这样就可以把一个很大的程序分成一些单元，可以分别编写和调试，最后连接成最终的程序。当只修改部分文件时，利用Make功能，只需要重新编译修改部分再连接即可。而Build功能则重新编译所有的文件。
+
+单元的结构如下：
+
+```pascal
+unit unitname;
+interface
+{ uses <list of units>; Optional}
+{ public declarations }
+implementation
+{ private declarations }
+{ procedures and functions}
+begin
+{ initialization code}
+end.
+```
+
+实际上，根据上述结构，单元与C中的头文件、实现文件类似。其中**interface**到**implementation**之间的部分类似于头文件，而**implementation**后的部分实现接口。
+
+TP提供的各种接口也通过单元来提供，使用**uses**来包含其他单元。其中TURBO.TPL中包含了*System*,*Crt*,*Dos*,*Printer*,*Turbo3*和*Graph3*，而GRAPH.TPU中包含了*Graph*单元。
+
+- *System*单元包含了基本的Pascal过程和函数，每个程序默认包含了*System*单元。
+- *Dos*单元提供了大部分DOS调用的API，例如*GetTime*,*SetTime*,*DiskSize*等，也提供了旧的*MsDos*和*Intr*。
+- *Crt*单元提供了文本界面控制和声音控制等。
+- *Printer*单元提供了*Lst*文件来支持打印机。
+- *Graph3*单元提供了3.0中的所有图形功能。
+- *Graph*单元提供了更多更快更强大的图形功能，包括我用的VGA和更早的CGA,EGA和Hercules等。
+
+由于有了单元，程序链和覆盖功能都不再支持，应该转换到单元。
+
+### 包含文件的嵌套
+
+以前的版本包含文件不能嵌套，TP4可以嵌套不超过8层。
+
+### 新的数据类型
+
+TP4提供了新的整数类型*longint*,*shortint*,*word*，如果有x87协处理器，还可以使用*single*,*double*,*extended*和*comp*。在此之前，TP只提供了16位整数，现在最多可以用64位整数(即*comp*)。
+
+> TP中的64位整数*comp*：很多用过Pascal的OIer都不知道TP也是有64位整数的，*comp*的范围为$-2^{63}+1\dots2^{63}-1$。虽然*comp*是浮点数类型，但是只能保存整数，而且与标准的64位整数相差1。*comp*需要x87协处理器才能使用。
+
+要使用x87，必须打开编译开关`{$N+}`，默认是`${N-}`。开启这个模式后，所有浮点运算都以*extended*精度运算，默认输出格式也改为*extended*的格式。如果没有x87，TP不允许编译`${N+}`的程序。
+
+另外8087使用自己的运算栈，因此写x87的过程和函数应该特别注意。例如以下函数将引起8087栈溢出：
+
+```pascal
+function Fib(N: integer): extended;
+begin
+  if N = 0 then Fib := 0.0 else
+  if N = 1 then Fib := 1.0 else
+  Fib := Fib(N-1) + Fib(N-2);
+end;
+```
+
+正确的写法是用临时变量保存`Fib(N-1)`和`Fib(N-2)`。参考FIB8087.PAS。
+
+### 短路的布尔表达式求值
+
+布尔表达式默认是短路的，但是可以通过编译开关来改变。
+
+### 条件编译
+
+提供了编译指令`{$DEFINE name}`,`{$UNDEF name}`,`{$IFDEF name}`,`{$IFNDEF name}`,`{$IFOPT switch}`(判断编译开关),`{$ELSE}`,`{$ENDIF}`来实现条件编译，与C预处理指令类似。另外，如果有x87，就会定义*CPU87*。
+
+### 命令行编译器
+
+TPC.EXE是命令行编译器，使用也很简单，例如`TPC QSORT.PAS`即可编译QSORT.PAS到QSORT.EXE。常用的选项包括/M(Make),/B(Build),/Q(Quiet),/F(Find),/R(内存中运行),/X(运行)，其中/F就等价于以前的“找运行时错误”功能。
+
+## 5.0(1988)
 
