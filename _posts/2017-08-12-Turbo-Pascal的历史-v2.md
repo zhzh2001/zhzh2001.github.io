@@ -495,3 +495,273 @@ TPC.EXE是命令行编译器，使用也很简单，例如`TPC QSORT.PAS`即可�
 
 ## 5.0(1988)
 
+![](/img/tp5ui.png)
+
+![](/img/tp5man.png)
+
+### 安装
+
+这是第一个需要安装的版本，我用的是2张720KB软盘的版本。INSTALL.EXE用于安装，安装过程不仅包括复制文件，还需要解压缩.ARC，因此最好用安装程序。
+
+![](/img/tp5inst.png)
+
+### 使用
+
+用户界面与4.0相差较大，蓝色占了大部分面积，菜单也更加丰富了。不过Load和Save不在快捷键列表中显示比较遗憾，但还是可以用的。现在Output用经典快捷键Alt+F5，全屏显示。相比4.0主要增加了调试功能。另外，运行MicroCalc时显示的可用内存增加了很多(都在内存中运行)。
+
+![](/img/tp5calc.png)
+
+### 源代码级别的调试
+
+TP5终于在IDE中支持基本的调试功能了，使用也很简单。用户手册中提供了以下例程：
+
+```pascal
+{$D+,L+} { Just to be sure complete debug information is being generated }
+{$R-}                            { Just to be sure range-checking is off }
+program RangeTest;
+var
+  List : array[1 .. 10] of integer;
+  Indx : integer;
+begin
+  for Indx := 1 to 10 do
+    List[Indx] := Indx;
+  Indx := 0;
+  while (Indx < 11) do
+  begin
+    Indx := Indx + 1;
+    if List[Indx] > 0 then
+      List[Indx] := -List [Indx]
+  end;
+  for Indx := 1 to 10 do
+    Writeln(List[Indx])
+end.
+```
+
+这段程序是死循环的，原因并不清晰：因为List[11]的位置就是Indx，因此接下来把Indx设置为-11，造成了死循环。然而，如果不知道TP的内存分配机制，可能很难想到这个错误。
+
+而使用调试功能，很容易发现这个问题。这要把List和Indx加入Watch，然后F8单步执行，当Indx=11的时候，就显示了上述行为的发生。如果打开范围检查呢(`{$R+}`)？在修改前先停止调试，即Run-Program reset。这时就报告错误201了，这相信大家都很熟悉。不过需要注意的是，TP5默认不开启范围检查，需要手动改选项或加上编译开关`{$R+}`。
+
+### 完整的8087浮点数模拟
+
+默认开启了编译开关`{$E+}`来允许使用软件模拟8087浮点数运算，这样程序可以在具有x87的PC上使用x87指令，而在没有协处理器的PC上使用软件模拟。
+
+### 基于单元的覆盖功能
+
+在传统的覆盖功能被4.0抛弃后，5.0引入了基于单元的覆盖功能，可以直接把单元作为覆盖的内容。需要使用编译开关`${O+}`来允许一个单元使用覆盖功能，用`${F+}`强制所有调用为FAR。只要在需要覆盖的单元中加入上述两个编译开关，在主程序中加入`${F+}`即可。
+
+在主程序中，必须先包含*Overlay*单元，之后用`{$O unitname}`来指定覆盖的单元。主程序还应该使用*OvrInit*初始化覆盖文件，如果有可能，可以使用*OvrInitEMS*将覆盖文件载入EMS。另外，还有一个类似*IOResult*的*OvrResult*来检测错误。包含覆盖功能的程序只能编译到文件。参考OVRDEMO.PAS。
+
+### EMS扩展内存
+
+先让我来解释一下EMS是什么。在8086/8088中，寻址空间为$2^{20}$=1MB，其中低640KB可以被程序直接访问(常规内存)，而剩下的384KB则用于硬件。而到了IBM AT/286时代，尽管寻址空间达到了16MB，但是只支持在保护模式下访问，没有任何DOS程序可以在那里运行。
+
+当时的解决方案之一是内存盘，这个相信大家应该不陌生，但是内存盘不能用来运行程序。另一种方法就是扩展内存，利用384KB的一部分来作为“窗口”来使用高内存区。其中一种就是Lotus/Intel/Microsoft
+Expanded Memory Specification (EMS)，TP5支持3.2+的版本，在扩展内存中可以存放覆盖文件，并将扩展内存用于内置代码编辑器。可以用EMS.PAS来检测EMS是否可用。
+
+### 过程类型
+
+过程类型可以将过程或函数作为变量定义，并作为参数传递。
+
+```pascal
+type
+  Proc       = procedure;
+  SwapProc   = procedure(var X,Y: integer);
+  StrProc    = procedure(S: string);
+  MathFunc   = function(X: real): real;
+  DeviceFunc = function(var F: text): integer;
+  MaxFunc    = function(A,B: real; F: MathFunc): real;
+```
+
+当然，TP不允许返回过程类型，也不允许标准过程或函数、嵌套过程或函数、**inline**过程或函数、**interrupt**过程或函数赋值给过程类型。另外，需要开启编译开关`{$F+}`。参考PROCVAR.PAS。
+
+### 常数表达式
+
+TP5允许用表达式初始化常数。
+
+```pascal
+const
+  Min      = 0;
+  Max      = 100;
+  Center   = (Max - Min) div 2;
+  Beta     = Chr(225);
+  NumChars = Ord('Z') - Ord('A') + 1;
+  Message  = 'Out of memory';
+  ErrStr   =' Error: ' + Message + '. ';
+  ErrPos   = 80 - Length(ErrorStr) div 2;
+  Ln10     = 2.302585092994045684;
+  Ln10R    = 1 / Ln10j
+  Numeric  = ['0' .. '9'];
+  Alpha    = ['A' .. 'Z' ,'a' .. 'z'];
+  AlphaNum = Alpha + Numeric;
+```
+
+## 5.5(1989)
+
+![](/img/tp55ui.png)
+
+![](/img/tp55man.png)
+
+![](/img/tp55inst.png)
+
+### TOUR
+
+5.5包含了一个TOUR.EXE——一个在线的介绍工具，可以让新手了解IDE的使用，大约需要15分钟完成。
+
+### 面向对象
+
+5.5最主要的改进就是全面支持面向对象程序设计(OOP)，当然TP主要借鉴了C++。其实从某种角度而言，对象就是带有过程和函数的记录，在TP中用关键字**object**代替**record**。
+
+#### 类定义
+
+```pascal
+type
+  Location = object
+    X, Y : Integer;
+  end;
+  Point = object(Location)
+    Visible : Boolean;
+  end;
+```
+
+其中括号表示了继承关系。在*Point*类中，可以正常使用*X*和*Y*。
+
+#### 方法定义
+
+```pascal
+type
+  Location = object
+    X, Y : Integer;
+    procedure Init(NewX, NewY : Integer);
+  end;
+procedure Location. Init (NewX, NewY : Integer);
+begin
+  X := NewX; { The X field of a Location object }
+  Y := NewY; { The Y field of a Location object }
+end;
+```
+
+类拥有的过程和函数被称为*方法*，与C++使用::不同，TP直接用.表示类的方法。另外，TP没有访问控制，不能阻止直接访问类的字段。字段必须在所有方法前定义。
+
+#### *Self*的使用
+
+```pascal
+type
+  MouseStat = record
+    Active: Boolean;
+    X, Y : Integer;
+    LButton, RButton : Boolean;
+    Visible : Boolean;
+  end;
+procedure Location.GoToMouse(MousePos : MouseStat);
+begin
+  Hide;
+  with MousePos do
+  begin
+    Self.X := X;
+    Self.Y := Y;
+  end;
+  Show;
+end;
+```
+
+以上代码展示了*Self*的用法，其实和*this*类似，只不过后者是指针。
+
+#### 方法重载
+
+```pascal
+type
+  Circle = Object(Point)
+    Radius : Integer;
+    procedure Init(InitX, InitY : Integer; InitRadius : Integer);
+    procedure Show;
+    procedure Hide;
+    procedure Expand(ExpandBy : Integer);
+    procedure MoveTo(NewX, NewY : Integer);
+    procedure Contract (ContractBy : Integer);
+  and;
+procedure Circle.Init(InitX, InitY : Integer; InitRadius : Integer);
+begin
+  Point.Init(InitX, InitY);
+  Radius := InitRadius;
+and;
+procedure Circle. Show;
+begin
+  Visible := True;
+  Graph.Circle(X, Y, Radius);
+and;
+procedure Circle. Hide;
+var
+  TempColor : Word;
+begin
+  TempColor := Graph.GetColor;
+  Graph.SetColor(GetBkColor);
+  Visible := False;
+  Graph.Circle(X, Y, Radius);
+  Graph.SetColor(TempColor);
+end;
+procedure Circle.Expand(ExpandBy : Integer);
+begin
+  Hide;
+  Radius := Radius + ExpandBy;
+  if Radius < 0 then Radius := 0;
+Show;
+end;
+procedure Circle. Contract (ContractBy : Integer);
+begin
+  Expand(-ContractBy);
+end;
+procedure Circle.MoveTo(NewX, NewY : Integer);
+begin
+  Hide;
+  X := NewX;
+  Y := NewY;
+  Show;
+end;
+```
+
+重载方法只要定义完全相同的方法，并改变内容。在上例中，用*Point.Init*来调用*Point*的方法。
+
+#### 构造和析构
+
+TP使用关键字**constructor**修饰构造过程，用**destructor**修饰析构过程，建议命名为*Init*和*Done*。
+
+```pascal
+Point = object(Location)
+  Visible : Boolean;
+  Next : PointPtr;
+  constructor Init(InitX, InitY : Integer);
+  destructor Done; virtual;
+  procedure Show; virtual;
+  procedure Hide; virtual;
+  function IsVisible : Boolean;
+  procedure MoveTo(NewX, NewY : Integer);
+  procedure Drag (DragBy : Integer); virtual;
+end;
+```
+
+#### 虚方法
+
+TP也支持虚方法，使用**virtual**关键字在方法定义后，这里不再详细介绍，可以参考C++。
+
+#### 面向对象的Calc
+
+历史悠久的MicroCalc被重命名为TurboCalc，并且用面向对象重写。
+
+![](/img/tp55calc.png)
+
+### 对象调试
+
+5.5同时支持对对象进行调试。
+
+### 覆盖功能的改进
+
+#### 覆盖缓冲区管理
+
+在5.0中，覆盖缓冲区用一个类似循环队列的数据结构维护，当空间足够时直接载入，不足时删除最早的模块。而5.5提供了可选的其他算法：当一个模块到队尾的空间小于阈值时，将这个模块标记，如果随后调用了被标记的模块，说明这个模块使用频繁，将其移至队首。通过测试，可以得出最佳的阈值，并用5.5提供的接口实现。
+
+#### 将覆盖文件放入.EXE文件
+
+TP5.5支持将覆盖文件放入.EXE中，以减少文件数量。首先必须确保关闭调试符号，然后用带/B选项的COPY命令，例如`COPY /B MYPROG.EXE + MYPROG.OVR`。加载覆盖文件用.EXE文件，即`Ovrlnit(ParamStr(0));`
+
+## 6.0(1990)
+
