@@ -172,7 +172,86 @@ TP1引入了*Mark*和*Release*来代替*Dispose*。*Mark(Var)*将堆指针保存
 
 ## 1.0(1983)
 
-1.0没有DOS版本，并且找不到有关文档。
+![](/img/tp1.png)
+
+![](/img/tp1ui.png)
+
+![](/img/tp1man.png)
+
+### 官方介绍
+
+![](http://edn.embarcadero.com/article/images/20693/tp1sm.gif)
+
+官方下载：<http://altd.embarcadero.com/download/museum/tp1.zip>
+
+发布日期：1983/11/20
+
+价格：\$49.95+\$5运费
+
+#### 系统要求
+
+- Intel 8086和Zilog Z-80微处理器
+- 64KB内存
+- 对于CP/M和DOS系统，5¼ "软盘
+- 对于CP/M系统，8"软盘
+
+#### 文件列表
+
+TP1.0在单张软盘上发行，共10个文件，131,297字节。TURBO.COM(包含带有编译器的IDE，Wordstar风格的编辑器和在内存中运行的系统)大小为33,280字节。
+
+- TURBO.COM - 编译器和编辑器
+- TURBOMSG.OVR - 错误信息文件
+- TINST.COM - IDE安装程序
+- TINSTMSG.OVR - TINST程序的错误信息
+- TLIST.COM - 打印程序
+- ERROR.DOC - 手册附加内容
+- CALC.PAS - MicroCalc表格示例程序
+- CALCMAIN.PAS - 示例包含功能
+- CALC.HLP - MicroCalc帮助手册
+- CALCDEMO.MCS - 示例表格定义
+
+### 使用
+
+TP1还不支持目录操作，只能使用当前目录。另外还有一个没有实现的运行功能，输入X提示该功能在8086/88上暂未实现，只支持CP/M-80。
+
+实际上，TP2的手册附录P前面的就是TP1的手册，据说更早时TP2直接提供TP1的手册加上附录P。
+
+关于用户界面的使用参见TP2。
+
+### 外部子程序
+
+TP中可以用**external**声明外部子程序，其必须是可重定位的。
+
+```pascal
+procedure Plot(X,Y: Integer); external 'PLOT';
+procedure QuickSort(var List: PartNo); external 'QS';
+```
+
+### DOS功能调用
+
+在早期的TP中，没有直接提供DOS接口，使用*MsDos*过程调用DOS功能。下面的代码提供了一种获取时间的方法，可以放到一个包含文件中。其他功能调用参见DOS参考手册，或者用较新的TP。
+
+```pascal
+type
+  regfile=record
+    AX,BX,CX,DX,BP,SI,DI,DS,ES,Flags:integer;
+  end;
+  timeRec=record
+    h,m,s,s100:integer;
+  end;
+
+procedure getTime(var t:timeRec);
+var
+  reg:regfile;
+begin
+  reg.AX:=$2C shl 8;
+  MsDos(reg);
+  t.h:=reg.CX shr 8;
+  t.m:=reg.CX and 255;
+  t.s:=reg.DX shr 8;
+  t.s100:=reg.DX and 255;
+end;
+```
 
 ## 2.0(1984)
 
@@ -182,13 +261,11 @@ TP1引入了*Mark*和*Release*来代替*Dispose*。*Mark(Var)*将堆指针保存
 
 ![](/img/tp2man.png)
 
-### 文件
-
-TP2非常简单，其实只要TURBO.COM就可以使用了，而TURBO.MSG提供了错误消息。两个文件还不到40KB。剩下的文件并不是必须的，尤其对于IBM PC而言。
-
 ### 使用
 
-2.0的用户界面很奇怪，但还是可以用的。在主菜单，按下高亮的字母可以选择对应的功能。如果要打开或新建一个文件，需要：
+虽然在手册中没有提到，用户界面已经可以切换目录了。
+
+用户界面很奇怪，但还是可以用的。在主菜单，按下高亮的字母可以选择对应的功能。如果要打开或新建一个文件，需要：
 
 1. L切换到需要的驱动器
 2. A改变当前目录
@@ -209,7 +286,7 @@ TP2非常简单，其实只要TURBO.COM就可以使用了，而TURBO.MSG提供�
 
 #### 一个递归测试
 
-TP2的编辑模式没有代码高亮功能。默认情况下，递归了8,127层，然后运行时错误FF，并给出了PC。如果编译到内存，会自动定位RE位置。
+编辑模式没有代码高亮功能。默认情况下，递归了8,127层，然后运行时错误FF，并给出了PC。如果编译到内存，会自动定位RE位置。
 
 如果编译到文件，只要记录下PC，然后在选项中选择F即可。
 
@@ -236,42 +313,6 @@ begin
 end.
 ```
 
-### 外部子程序
-
-TP中可以用**external**声明外部子程序，其必须是可重定位的。
-
-```pascal
-procedure Plot(X,Y: Integer); external 'PLOT';
-procedure QuickSort(var List: PartNo); external 'QS';
-```
-
-### DOS功能调用
-
-在TP2中，没有直接提供DOS接口，使用*MsDos*过程调用DOS功能。下面的代码提供了一种获取时间的方法，可以放到一个包含文件中。其他功能调用参见DOS参考手册，或者用较新的TP。
-
-```pascal
-type
-  regfile=record
-    AX,BX,CX,DX,BP,SI,DI,DS,ES,Flags:integer;
-  end;
-  timeRec=record
-    h,m,s,s100:integer;
-  end;
-
-procedure getTime(var t:timeRec);
-var
-  reg:regfile;
-begin
-  reg.AX:=$2C shl 8;
-  MsDos(reg);
-  t.h:=reg.CX shr 8;
-  t.m:=reg.CX and 255;
-  t.s:=reg.DX shr 8;
-  t.s100:=reg.DX and 255;
-end;
-
-```
-
 ### 覆盖功能(**overlay**)
 
 覆盖功能可以把一个程序的多个功能模块加载到内存中的同一个位置，以扩大程序的规模。只要在过程或函数声明前加入**overlay**关键字。
@@ -294,13 +335,33 @@ end;
 
 这个版本的TP2无法找到。根据文档，这个版本必须有8087浮点协处理器才能使用，并且用64位的实数代替默认的(其实就是`double`)，具有更高的精度和更快的速度。
 
-## 3.0(1985)
+## 3.0(1985~1986)
 
 ![](/img/tp3disk.jpg)
 
 ![](/img/tp3.png)
 
 ![](/img/tp3man.png)
+
+### 官方介绍(3.02)
+
+官方下载：<http://altd.embarcadero.com/download/museum/tp302.zip>
+
+发布日期：1986/9/17
+
+价格：\$99.95(包含8087和BCD)；CP/M-80版本(不包含8087和BCD)：\$69.95
+
+#### 系统要求
+
+16位系统
+
+- 128KB内存(包含8087和BCD)
+- MS-DOS 2.0和CP/M-86 1.1
+
+8位系统
+
+- 48KB内存(不包含8087和BCD)
+- CP/M-80 2.2
 
 ### 文件
 
@@ -602,6 +663,14 @@ const
 ![](/img/tp55man.png)
 
 ![](/img/tp55inst.png)
+
+### 官方介绍
+
+![](http://edn.embarcadero.com/article/images/20803/tp55ad.jpg)
+
+官方下载：<http://altd.embarcadero.com/download/museum/tp55.zip>
+
+发布日期：1989/5/2
 
 ### TOUR
 
