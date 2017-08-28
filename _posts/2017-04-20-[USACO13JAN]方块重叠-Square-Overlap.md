@@ -3,9 +3,9 @@ layout: post
 tags: 题解 平衡树
 ---
 
-## 思路
+# 思路
 
-### 整体
+## 整体
 
 首先，我们可以知道，要满足题意，两个正方形的坐标$(x_i,y_i)(x_j,y_j)$必须满足$\vert x_i-x_j\vert<k$并且$\vert y_i-y_j\vert<k$。如果有且仅有一组正方形满足条件，那么重叠部分的面积$ans=\vert k-(x_i-x_j)\vert\times\vert k-(y_i-y_j)\vert$。
 
@@ -17,7 +17,7 @@ tags: 题解 平衡树
 
 如何维护所有满足条件的点呢？因为点是有序的，满足$x_i\le x_{i+1}$，每次只需将无效的点删除即可。
 
-### 具体实现
+## 具体实现
 
 使用`set`维护点集比较方便，删除和插入操作均为log级的。其中`set::insert`会返回一个`pair<iterator,bool>`，第一个为插入后的迭代器，第二个为插入是否成功。(参考http://en.cppreference.com/w/cpp/container/set/insert)
 
@@ -25,7 +25,7 @@ tags: 题解 平衡树
 
 另外，答案应该用64位整数保存。
 
-## 代码清单
+# 代码清单
 
 ```cpp
 #include<bits/stdc++.h>
