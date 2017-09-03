@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: USACO07DEC 美食的食草动物 Gourmet Grazers
 ---
 
 # 思路

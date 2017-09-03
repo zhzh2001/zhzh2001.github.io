@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: USACO13NOV 挤奶牛 Crowded Cows
 ---
 
 # 思路

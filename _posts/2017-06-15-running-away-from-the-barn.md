@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: USACO12DEC Running Away From the Barn
 ---
 
 # 思路

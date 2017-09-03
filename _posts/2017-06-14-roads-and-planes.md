@@ -1,5 +1,5 @@
 ---
-title: USACO11JAN 道路和飞机Roads and Planes
+title: USACO11JAN 道路和飞机 Roads and Planes
 layout: post
 tags: 题解
 ---

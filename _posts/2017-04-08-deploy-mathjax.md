@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 教程
+title: 部署Mathjax
 ---
 
 # 关于Mathjax

@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: 使用压位计算传递闭包
 ---
 
 > 参考ZJOI2017 Day2讲课《动态传递闭包问题的探究》

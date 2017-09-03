@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 教程
+title: C++中的随机数
 ---
 
 # 使用C的随机数

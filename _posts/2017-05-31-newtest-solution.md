@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: 简单的测试题 题解
 ---
 
 # 1.排序

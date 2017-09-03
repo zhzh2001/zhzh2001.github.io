@@ -1,6 +1,7 @@
 ---
 layout: post
 tags: 题解
+title: 我的创新题目 题解和标程
 ---
 
 # 1.数列

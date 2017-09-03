@@ -834,3 +834,14 @@ TP5.5支持将覆盖文件放入.EXE中，以减少文件数量。首先必须�
 
 ## 6.0(1990)
 
+![](/img/tp6ui.png)
+
+![](/img/tp6man.png)
+
+![](/img/tp6inst.png)
+
+### IDE
+
+![](/img/tp6ide.png)
+
+新的IDE支持多窗口编辑，并支持窗口重叠、并列等排列(Windows 2.0)。支持鼠标，但是我自己安装了CuteMouse。
