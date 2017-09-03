@@ -28,6 +28,8 @@ USACO07MAR Gold T2:Ranking the Cows
 
 这样时间复杂度时$O(n^3)$的，可以得到30分。
 
+ <!-- more -->
+
 #### 压位优化
 
 用$T_i^k$表示从i经过前k个点能到达的点的集合，则有

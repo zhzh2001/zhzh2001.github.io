@@ -10,6 +10,8 @@ title: USACO07DEC 美食的食草动物 Gourmet Grazers
 
 用multiset来维护牧草的价格很方便，支持所有操作，当然价格可以重复。时间复杂度$O(N\log N)$
 
+ <!-- more -->
+
 # 代码
 
 ```cpp

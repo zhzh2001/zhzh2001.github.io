@@ -1,13 +1,13 @@
 ---
-layout: default
-title: 首页
+layout: page
+title: 关于
 ---
 
 # 介绍
 
 主要用于发表**原创**题解，以及其他有趣的总结；内容将不会很多。
 
-采用`Github`默认的*将纯文本转换为静态博客网站*的[`jekyll`][jekyll]技术，使用的主题为`leap-day`。
+采用`Github`默认的*将纯文本转换为静态博客网站*的[`jekyll`][jekyll]技术，使用的主题为`NexT.Mist`。
 
 # 代码仓库
 

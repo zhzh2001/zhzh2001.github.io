@@ -18,6 +18,8 @@ title: USACO13JAN 方块重叠 Square Overlap
 
 如何维护所有满足条件的点呢？因为点是有序的，满足$x_i\le x_{i+1}$，每次只需将无效的点删除即可。
 
+ <!-- more -->
+
 ## 具体实现
 
 使用`set`维护点集比较方便，删除和插入操作均为log级的。其中`set::insert`会返回一个`pair<iterator,bool>`，第一个为插入后的迭代器，第二个为插入是否成功。(参考http://en.cppreference.com/w/cpp/container/set/insert)

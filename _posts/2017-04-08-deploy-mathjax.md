@@ -26,6 +26,8 @@ title: 部署Mathjax
 
 `Mathjax`推荐通过cdn.mathjax.org使用，但由于经费问题，**CDN服务器将于4月30日关闭**。当我得到这条消息时，又想起了曾经被否定的计划。
 
+ <!-- more -->
+
 # 部署Mathjax
 
 ## 转移

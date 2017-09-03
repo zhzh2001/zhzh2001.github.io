@@ -12,6 +12,8 @@ tags: 教程
 
 与标准的`Markdown`不同，不提供数学公式的支持。
 
+ <!-- more -->
+
 # 方法
 
 1. 下载*主题仓库*中`/_layouts/default.html`放入`/_layouts`下

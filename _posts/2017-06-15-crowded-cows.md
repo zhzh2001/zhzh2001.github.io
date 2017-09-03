@@ -12,6 +12,8 @@ title: USACO13NOV 挤奶牛 Crowded Cows
 
 时间复杂度$O(N\log N)$，与其他方法相同，但常数比单调队列大。因为后者只要用到sort，比set常数小得多。
 
+ <!-- more -->
+
 # 代码
 
 ```cpp
