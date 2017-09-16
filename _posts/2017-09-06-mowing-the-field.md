@@ -8,11 +8,13 @@ title: USACO16JAN 割草场 Mowing the Field
 
 $\left\vert S\right\vert$:集合$S$的元素数量
 
-$\{x\vert p(x)\}$:符合$p(x)$的元素组成的集合
+$$\{x\vert p(x)\}$$:符合$p(x)$的元素组成的集合
 
 $\land$:逻辑与
 
 $\lor$:逻辑或
+
+ <!-- more -->
 
 # 思路
 
@@ -22,7 +24,7 @@ $$c_i=\left\vert\{j\vert x_j^l<x_i<x_j^r\land y_i^l<y_j<y_i^r\land\left\vert t_i
 
 当然，这个可以$O(N^2)$枚举。如果把绝对值拆开，就变成$t_j+T\le t_i\le t_j+T$，这时就变成经典的三维偏序问题了，可以在$O(N\log^2N)$内解决。
 
-我们可以把竖直线段作为查询操作。按照x坐标排序，用扫描线维护水平线段$i$，保存点$(t_i,y_i)$。对于竖直线段$i$，查询$\left\vert\{(t_j,y_j)\vert(t_j\le t_i-T\lor t_j\ge t_i+T)\land(y_i^l<y_j<y_i^r)\}\right\vert$即为答案。注意，线段端点相交不计入答案，在处理x坐标时也要注意。
+我们可以把竖直线段作为查询操作。按照x坐标排序，用扫描线维护水平线段$i$，保存点$(t_i,y_i)$。对于竖直线段$i$，查询$$\left\vert\{(t_j,y_j)\vert(t_j\le t_i-T\lor t_j\ge t_i+T)\land(y_i^l<y_j<y_i^r)\}\right\vert$$即为答案。注意，线段端点相交不计入答案，在处理x坐标时也要注意。
 
 至于数据结构，我用了官方的树状数组套线段树。
 
