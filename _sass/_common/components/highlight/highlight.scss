@@ -8,6 +8,10 @@
   overflow: auto;
   margin: 20px 0;
   padding: 0;
+  tab-size: 4;
+  -o-tab-size: 4;
+  -moz-tab-size: 4;
+  -webkit-tab-size: 4;
   font-size: $code-font-size;
   color: $highlight-foreground;
   background: $highlight-background;

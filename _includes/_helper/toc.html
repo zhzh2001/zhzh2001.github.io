@@ -10,7 +10,7 @@
   {% assign num_array = '0' | split: '' %}
 
   {% assign first = true %}
-  {% for i in (1..100) %}
+  {% for i in (1..1000) %}
     {% if str_stack.size == 0 %}
       {% break %}
     {% endif %}
@@ -91,7 +91,7 @@
       {% assign str = tmp[1] | strip %}
 
       {% assign tmp = tmp[0] | strip | split: '>' %}
-      {% assign title = tmp[1] %}
+      {% assign title = tmp | shift | join: '>' | strip_html %}
 
       {% assign tmp = tmp[0] | strip | split: 'id=' %}
       {% assign id = tmp[1] | strip | replace: '"', '' %}
