@@ -188,7 +188,7 @@ TP1引入了*Mark*和*Release*来代替*Dispose*。*Mark(Var)*将堆指针保存
 
 发布日期：1983/11/20
 
-#### 价格：$$\$49.95+\$5$$ 运费
+#### 价格：$\$49.95+\$5$ 运费
 
 #### 系统要求
 
@@ -678,6 +678,8 @@ const
 
 5.5包含了一个TOUR.EXE——一个在线的介绍工具，可以让新手了解IDE的使用，大约需要15分钟完成。
 
+![](/img/tp55tour.png)
+
 ### 面向对象
 
 5.5最主要的改进就是全面支持面向对象程序设计(OOP)，当然TP主要借鉴了C++。其实从某种角度而言，对象就是带有过程和函数的记录，在TP中用关键字**object**代替**record**。
@@ -847,3 +849,152 @@ TP5.5支持将覆盖文件放入.EXE中，以减少文件数量。首先必须�
 ![](/img/tp6ide.png)
 
 新的IDE支持多窗口编辑，并支持窗口重叠、并列等排列(Windows 2.0)。支持鼠标，但是我自己安装了CuteMouse。
+
+### Turbo Vision
+
+![](/img/tp6tvdemo.png)
+
+Turbo Vision是一个面向对象的应用程序框架，用于开发图形界面程序，风格与IDE相同。当然，其实还是基于文本界面的，只是提供了窗口、菜单、状态栏、对话框等元素的实现。上图是一个示例，缺点是很费内存，右下角显示的数字就是可用内存。应该在IDE外运行时可用空间将增加。
+
+![](/img/tp6mle.png)
+
+退出IDE后，可以自由打开文件，但是只能查看，不能修改。另外提供了4个工具：15数码、日历、ASCII表和计算器。
+
+![](/img/tp6file.png)
+
+![](/img/tp6tools.png)
+
+另外还有智能帮助功能，只要按下F1即可。
+
+![](/img/tp6puzzlehelp.png)
+
+### 内联汇编器
+
+这个功能允许你直接在Pascal代码中插入80(2)86/7汇编代码，当然旧的方法仍然可以使用。它支持Turbo Assembler的相当大部分语法子集，但不支持绝大部分编译指令，应该使用Pascal语法来代替。
+
+通过**asm**语句来使用内联汇编器。
+
+```pascal
+asm
+  mov    ah,0        { Read keyboard function code }
+  int    16H            { Call PC BIOS to read key }
+  mov    CharCode,al             { Save ASCII code }
+  mov    ScanCode,ah              { Save scan code }
+end;
+
+asm
+  push   ds                              { Save DS }
+  lds    si,Source           { Load source pointer }
+  les    di,Dest        { Load destination pointer }
+  mov    cx,Count                { Load block size }
+  cld                              { Move forwards }
+  rep    movsb                        { Copy block }
+  pop    ds                           { Restore DS }
+end;
+```
+
+#### 内联汇编的关键字
+
+```
+AH      CL      FAR     SEG
+AL      CS      HIGH    SHL
+AND     CX      LOW     SHR
+AX      DH      MOD     SI
+BH      DI      NEAR    SP
+BL      DL      NOT     SS
+BP      DS      OFFSET  ST
+BX      DWORD   OR      TBYTE
+BYTE    DX      PTR     TYPE
+CH      ES      QWORD   WORD
+                        XOR
+```
+
+### 面向对象的改进
+
+**private**带来了私有的字段和方法，在上一个版本中没有提供支持。但是，与C++中的*class*不同的是，默认的仍然为**public**(当然没有这个关键字)，类似于*struct*(POD)。
+
+```pascal
+type
+  NewObject = object(ancestor)
+    fields; { these are public }
+    methods; { these are public }
+  private
+    fields; { these are private }
+    methods; { these are private }
+  end;
+```
+
+### 扩展语法
+
+扩展语法开关(`$X`)可以像过程一样使用函数，即忽略其返回值。
+
+### 286代码生成
+
+使用`$G`开关可以允许生成286代码，其无法在8086上运行。
+
+### TPTOUR
+
+这个版本的TOUR比5.5要高级多了，在鼠标使用方面有点像Windows 3.1的教程。不过这个教程还是偏向于使用键盘而不是鼠标，有时经常会出现警告：请使用键盘而不是鼠标。
+
+![](/img/tp6tour.png)
+
+![](/img/tp6tour2.png)
+
+![](/img/tp6tour3.png)
+
+![](/img/tp6tourwarn.png)
+
+## 7.0(1992)
+
+![](/img/tp7ui.png)
+
+![](/img/tp7man.png)
+
+### IDE
+
+除了提供传统的实模式(8086)下的TURBO.EXE之外，还提供了保护模式下的TPX.EXE。要运行保护模式下的IDE，必须具有286和至少2MB内存。
+
+两个IDE有一些区别，内存占用不同，并且TPX不再提供编译到内存功能，只能编译到文件。
+
+![](/img/tp7protect.png)
+
+![](/img/tp7real.png)
+
+#### 语法高亮
+
+7.0支持默认关键字高亮为白色，注释为灰色，汇编为绿色，其余符号为黄色。当然这个设置可以在菜单中手动修改，可以修改到接近Free Pascal的高亮，但是不识别编译开关。
+
+![](/img/tp7highlight.png)
+
+#### 撤销功能
+
+撤销和恢复功能，与现代编辑器相同，可持久化……
+
+#### 右键菜单
+
+这个在现在看来也很基本……
+
+### 语言改进
+
+#### 变长参数
+
+支持变长字符串*OpenString*和变长数组参数(注意只能是参数)，用*Low*和*High*返回起始下标和结束下标，相当于C++容器的*begin*和*end*方法，只不过不超尾。
+
+#### 面向对象
+
+提供了**public**关键字，可以与**private**混合使用。另外**inherited**关键字可以调用祖先的方法。
+
+#### **const**参数
+
+**const**的参数不能被修改，相当于常量。
+
+### 运行时库(RTL)
+
+#### 新增系统函数
+
+- *Assigned*:测试指针是否为**nil**
+- *Break*
+- *Continue*
+- *High*
+- *Low*
+
