@@ -20,17 +20,17 @@ baseurl:
 permalink: pretty
 
 # Pagination
-paginate: 5
+paginate: 6
 #paginate_path: "/page:num/"
-#archive:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+archive:
+  paginate: 12
+  paginate_path: "/page:num/"
 #category:
   #paginate: 10
   #paginate_path: "/page:num/"
-#tag:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+tag:
+  paginate: 12
+  paginate_path: "/page:num/"
 
 # Handling Reading
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "README_en.md"]
@@ -56,7 +56,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "default"
       comments: true
 
 # Atom feed
@@ -87,7 +87,7 @@ keywords: "Jekyll, NexT"
 rss:
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2017
 
 # icon between year and author @Footer
 authoricon: heart
@@ -213,8 +213,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
-  #LinkLabel: Link
+social:
+  GitHub: https://github.com/zhzh2001
 
 
 # Social Links Icons
@@ -281,11 +281,18 @@ sidebar:
 
 
 # Blog rolls
-#links_title: Links
-#links_layout: block
+links_title: Links
+links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  mdnd: http://blog.csdn.net/mdnd1234
+  jzq: http://blog.csdn.net/jzq233jzq
+  SW_Wind: https://swwind.github.io
+  szb: https://shenzhebei.github.io
+  zhouyuyang: http://blog.csdn.net/zhouyuyang233
+  Fop_zz: http://blog.csdn.net/fop_zz
+  largecube: http://blog.csdn.net/largecub233
+  Littlewhite: https://liangziqi.github.io/
 
 
 # ---------------------------------------------------------------
@@ -317,8 +324,8 @@ post_meta:
 # Post wordcount display settings
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
+  wordcount: true
+  min2read: true
   separated_meta: true
 
 # Wechat Subscriber
@@ -380,8 +387,8 @@ han: false
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: zhzh2001
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
