@@ -1,6 +1,8 @@
 ---
 layout: post
-tags: 教程
+tags:
+- LaTeX
+- 教程
 title: LaTeX小结
 ---
 

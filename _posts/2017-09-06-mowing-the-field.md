@@ -1,6 +1,9 @@
 ---
 layout: post
-tags: 题解
+tags:
+- 扫描线
+- 线段树
+- 树套树
 title: USACO16JAN 割草场 Mowing the Field
 ---
 

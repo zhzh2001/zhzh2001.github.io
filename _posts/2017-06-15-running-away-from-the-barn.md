@@ -1,6 +1,9 @@
 ---
 layout: post
-tags: 题解
+tags:
+- DFS
+- 树状数组
+- 倍增
 title: USACO12DEC Running Away From the Barn
 ---
 

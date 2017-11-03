@@ -1,6 +1,7 @@
 ---
 layout: post
-tags: 题解
+tags:
+- bitset
 title: 使用压位计算传递闭包
 ---
 

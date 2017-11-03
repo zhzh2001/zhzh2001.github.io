@@ -1,6 +1,8 @@
 ---
 layout: post
-tags: 教程 C++
+tags:
+- C++
+- 教程
 title: C++中的随机数
 ---
 

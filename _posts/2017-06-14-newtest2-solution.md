@@ -1,6 +1,11 @@
 ---
 layout: post
-tags: 题解
+tags:
+- 贪心
+- 平衡树
+- DP
+- 倍增
+- 最短路
 title: 简单的测试题2 题解
 ---
 

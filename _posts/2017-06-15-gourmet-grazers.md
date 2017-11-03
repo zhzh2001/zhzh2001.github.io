@@ -1,6 +1,9 @@
 ---
 layout: post
-tags: 题解
+tags:
+- 贪心
+- 排序
+- 平衡树
 title: USACO07DEC 美食的食草动物 Gourmet Grazers
 ---
 

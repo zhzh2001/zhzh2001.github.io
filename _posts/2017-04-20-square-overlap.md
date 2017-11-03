@@ -1,6 +1,8 @@
 ---
 layout: post
-tags: 题解 平衡树
+tags:
+- 扫描线
+- 平衡树
 title: USACO13JAN 方块重叠 Square Overlap
 ---
 

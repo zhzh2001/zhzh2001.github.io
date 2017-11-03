@@ -1,6 +1,8 @@
 ---
 layout: post
-tags: 题解
+tags:
+- 平衡树
+- 排序
 title: USACO13NOV 挤奶牛 Crowded Cows
 ---
 

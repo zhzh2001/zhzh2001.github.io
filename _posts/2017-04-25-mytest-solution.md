@@ -1,6 +1,9 @@
 ---
 layout: post
-tags: 题解
+tags:
+- 质数
+- STL
+- 分段打表
 title: 我的创新题目 题解和标程
 ---
 

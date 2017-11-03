@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 质数计数
-tags: 数学
+tags:
+- 质数
 ---
 
 # 前言

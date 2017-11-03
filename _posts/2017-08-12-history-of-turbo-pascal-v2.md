@@ -1,6 +1,8 @@
 ---
 layout: post
-tags: 历史
+tags:
+- 历史
+- Pascal
 title: Turbo Pascal的历史 v2
 ---
 
@@ -188,7 +190,7 @@ TP1引入了*Mark*和*Release*来代替*Dispose*。*Mark(Var)*将堆指针保存
 
 发布日期：1983/11/20
 
-#### 价格：$$\$49.95+\$5$$ 运费
+#### 价格：$\$49.95+\$5$ 运费
 
 #### 系统要求
 

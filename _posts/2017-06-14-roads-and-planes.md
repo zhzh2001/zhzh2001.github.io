@@ -1,7 +1,8 @@
 ---
 title: USACO11JAN 道路和飞机 Roads and Planes
 layout: post
-tags: 题解
+tags:
+- 最短路
 ---
 
 # 思路
