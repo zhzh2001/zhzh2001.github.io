@@ -293,7 +293,6 @@ links:
   zhouyuyang: http://blog.csdn.net/zhouyuyang233
   Fop_zz: http://blog.csdn.net/fop_zz
   largecube: http://blog.csdn.net/largecub233
-  Littlewhite: https://liangziqi.github.io/
 
 
 # ---------------------------------------------------------------
@@ -409,7 +408,7 @@ changyan:
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
-youyan_uid: 2149200
+#youyan_uid: 2149200
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -496,7 +495,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
+  enable: true
   app_id: 3bRUtj9DoI5YeBe7JoEpq5Ju-gzGzoHsz
   app_key: 8O5LCwmy0xGzfI7kF2alBpcf
 
