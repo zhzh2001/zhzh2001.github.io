@@ -387,7 +387,7 @@ han: true
 
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: zhzh2001-github-io
   count: true
   # hide comments (visitors need to click to load the comments)
@@ -487,7 +487,7 @@ vkontakte_api:
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
 rating:
-  enable: true
+  enable: false
   id:     8142
   color:  fc6423
 
@@ -495,7 +495,7 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
+  enable: false
   app_id: 3bRUtj9DoI5YeBe7JoEpq5Ju-gzGzoHsz
   app_key: 8O5LCwmy0xGzfI7kF2alBpcf
 
@@ -603,7 +603,7 @@ pace: true
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves
 three_waves: false
