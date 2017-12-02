@@ -1,19 +1,5 @@
 {% case page.layout %} {% when 'post' %} {% capture script_extra %}{% include _scripts/pages/post-details.html %}{% endcapture
-%}
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-  var gitment = new Gitment({
-    owner: 'zhzh2001',
-    repo: 'comment',
-    oauth: {
-      client_id: 'a418da7a46b184b7a7f3',
-      client_secret: '86a15cc74a6009ebd5ec8faa84408de9b8bfaa00',
-    },
-  })
-  gitment.render('container')
-</script> {% when 'archive' %} {% capture script_extra %} {% if site.use_motion %}
+%} {% when 'archive' %} {% capture script_extra %} {% if site.use_motion %}
 <script type="text/javascript" id="motion.page.archive">
   $('.archive-year').velocity('transition.slideLeftIn');
 </script> {% endif %} {% include _scripts/pages/pagination.html %} {% endcapture %} {% when 'category' %} {% capture script_extra
