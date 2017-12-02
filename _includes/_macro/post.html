@@ -90,7 +90,21 @@ post_class = post_class | append: ' ' | append: 'post-sticky' %} {% endif %}
         {% assign cat_length = post.categories.size %} {% if cat_length > 1 and loop.index != cat_length %} {{ __.symbol.comma }}
         {% endif %} {% endfor %}
       </span>
-      {% endif %} {% if post.comments %} {% if site.duoshuo_shortname or site.duoshuo and site.duoshuo.shortname %}
+      {% endif %} {% if post.comments and site.gitment.enable %}
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          owner: 'zhzh2001',
+          repo: 'zhzh2001.github.io',
+          oauth: {
+            client_id: 'a418da7a46b184b7a7f3',
+            client_secret: '86a15cc74a6009ebd5ec8faa84408de9b8bfaa00',
+          },
+        })
+        gitment.render('container')
+      </script> {% endif %} {% if post.comments %} {% if site.duoshuo_shortname or site.duoshuo and site.duoshuo.shortname %}
       <span class="post-comments-count">
         <span class="post-meta-divider">|</span>
         <span class="post-meta-item-icon">
@@ -318,23 +332,9 @@ post_class = post_class | append: ' ' | append: 'post-sticky' %} {% endif %}
         {% endif %}
       </div>
     </div>
-    {% endif %} {% endunless %}
-    <div id="container"></div>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    <script>
-      var gitment = new Gitment({
-        owner: 'zhzh2001',
-        repo: 'comment',
-        oauth: {
-          client_id: 'a418da7a46b184b7a7f3',
-          client_secret: '86a15cc74a6009ebd5ec8faa84408de9b8bfaa00',
-        },
-      })
-      gitment.render('container')
-    </script> {% if is_index %} {% assign per_page = paginator.per_page | default: site.posts.size %} {% assign index_modulo_per_page
-    = forloop.index | modulo: per_page %} {% if index_modulo_per_page == 0 %} {% assign isLast = true %} {% endif %} {% unless
-    isLast %}
+    {% endif %} {% endunless %} {% if is_index %} {% assign per_page = paginator.per_page | default: site.posts.size %} {% assign
+    index_modulo_per_page = forloop.index | modulo: per_page %} {% if index_modulo_per_page == 0 %} {% assign isLast = true
+    %} {% endif %} {% unless isLast %}
     <div class="post-eof"></div>
     {% endunless %} {% endif %}
   </footer>

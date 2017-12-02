@@ -387,12 +387,15 @@ han: false
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: zhzh2001-github-io
   count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
   hide: false
+
+gitment:
+  enable: true
 
 # Hypercomments
 #hypercomments_id:
