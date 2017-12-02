@@ -3,6 +3,7 @@ layout: post
 tags:
 - LaTeX
 - 教程
+- intro
 title: LaTeX小结
 ---
 
