@@ -121,17 +121,38 @@ tags:
 
 ## 独行猫
 
+# 历史
+
+猫本来居住在山中，后来由于未知的原因来到了湖区。(参考*Sign of the Moon*中*Rock*的描述)
+
+后来由于可能的人类威胁以及*Fallen Leaves*的消失，*Jay's Wing*投了关键一票，通过迁徙到山区的提案。(参考*Long Shadows*)
+
+*Half Moon*成为第一任尖石巫师，形成古代急水部落。(还是*Sign of the Moon*)由于山区条件艰苦，大部分猫又迁徙到旧森林，并形成五个族群。(没看过*Dawn of the Clans*)
+
+由于领地被人类占用，天族被迫离开，形成四个族群。(参考*Firestar's Quest*, *Cloudstar's Journey*等)
+
+由于旧森林被人类完全开发，四族被迫离开旧森林，前往湖区。(参考*TNP*)
+
+天族回到湖区？(在*AVoS*中)
+
 # 书籍
 
 书籍分为正传和长篇外传、短篇外传、手册等。
 
+> 剧透警告
+
 ## 正传
 
-目前共六部曲(系列)，每部曲有六本，分别为*The Prophecies Begin*(预言开始)、*The New Prophecy*(新预言)、*Power of Three*(三力量)、*Omen of the Stars*(星预言)、*Dawn of the Clans*(族群黎明)、*A Vision of Shadows*。其中族群黎明为前传。目前我只看到四部曲。
+目前共六部曲(系列)，每部曲有六本，分别为*The Prophecies Begin*(预言开始)、*The New Prophecy*(新预言)、*Power of Three*(三力量)、*Omen of the Stars*(星预言)、*Dawn of the Clans*(族群黎明)、*A Vision of Shadows*(*暗影幻象*)。其中族群黎明为前传。目前我只看到四部曲。
 
 ### The Prophecies Begin
 
-最初的系列。
+最初的系列。介绍了宠物猫*Rusty*从加入雷族到成为族长*Firestar*的故事。
+
+#### 主要预言
+
+- 火将会拯救族群。——*Spottedleaf*
+- 四个将变成两个，狮子和老虎之间发生大战，血将统治森林。——*Bluestar*
 
 #### Into the Wild(呼唤野性)
 
@@ -147,7 +168,15 @@ tags:
 
 ### The New Prophecy
 
+介绍了族群从森林到湖区的大迁徙，下一代的故事。
+
 Point of View(PoV): *Brambleclaw*, *Leafpool*, *Stormfur*, *Feathertail*, *Squirrelflight*
+
+#### 主要预言
+
+- 黑暗、空气、水，以及天空将合而为一，从根本上撼动整座森林。
+- 银毛猫将拯救部落。
+- 在和平降临前，血，依旧要溅血，湖水将染成血红一片。——*Yellowfang*
 
 #### Midnight(午夜追踪)
 
@@ -163,7 +192,13 @@ Point of View(PoV): *Brambleclaw*, *Leafpool*, *Stormfur*, *Feathertail*, *Squir
 
 ### Power of Three
 
+介绍了雷族的三力量，拥有特殊的能力。
+
 PoV: *Jayfeather*, *Hollyleaf*, *Lionblaze*
+
+#### 主要预言
+
+- 将会有三只小猫，你至亲的至亲，星权在握。——*Skywatcher*
 
 #### The Sight(预视力量)
 
@@ -179,7 +214,15 @@ PoV: *Jayfeather*, *Hollyleaf*, *Lionblaze*
 
 ### Omen of the Stars
 
+介绍了真正的三力量，以及星族与黑森林的战争。
+
 PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
+
+#### Prophecies
+
+- After the sharp-eyed jay and the roaring lion, peace will come on dove's gentle wing. -- *Yellowfang*
+- It's coming. A battle between StarClan and the Dark Forest, and every warrior will be called upon to fight. -- *Jayfeather*
+- The end of the stars draws near. Three must become four, to challenge the darkness that lasts forever. -- *Cloud with Storm in Belly*
 
 #### The Fourth Apprentice(第四学徒)
 
@@ -196,6 +239,8 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 ### Dawn of the Clans
 
 ### A Vision of Shadows
+
+#### The Apprentice's Quest(*学徒探索*)
 
 # 人物
 
@@ -218,9 +263,40 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 
 摘录包括预言(Prophecy)、预兆(Omen)和其他句子。我前三部曲看的是中文，四部曲看的是英文，对于中文版用章定位，英文版用页定位。
 
-- (OTS #1P65, Prophecy)After the sharp-eyed jay and the roaring lion, peace will come on dove's gentle wing. (*Yellowfang* to *Dovepaw*)
-- (OTS #4P293, Prophecy)The end of the stars draws near. Three must become four, to challenge the darkness that lasts forever. (*Cloud with Storm in Belly* to *Jayfeather*)
 - (OTS #6P253)But tonight we will rage through the Clans like a storm until only the strong remain. We will build a new Clan where strength and victory are prized above weakness and failure. 
+
+## 群星之战
+
+一些读后感。真正战斗的部分只有最后70页，不过我写了整整一页笔记。书中提到雷族战死的只有*Hollyleaf*(by *Hawkfrost*), *Mousefur*, *Ferncloud*(by *Brokenstar*), *Firestar*。当然，另一个关键的是*Spottedleaf*。其中*Firestar*被树砸死，虽然官方不赞同。结局是*Brambleclaw*成为*Bramblestar*，并且任命*Squirrelflight*为副族长。另外*the Three*的时代已经结束了。
+
+> If you have half the courage and loyalty of Firestar, you will be a fine leader of ThunderClan. -- *Bluestar*
+>
+> 这是*Bluestar*对*Bramblestar*的话，是对*Firestar*的高度评价。
+
+> An ending, and a beginning. -- *Jayfeather*
+
+> For a brief moment, they had held the power of the stars in their paws. And now it was over. -- *Dovewing*
+
+> There will be three cats, kin of your kin, with the power of the stars in their paws. They will find a fourth, and the battle between light and dark will be won. A new leader will rise from the shadows of his death, and the Clans will survive beyond the momories of his memories. This is how it has always been, and how it will always be. 
+>
+> 正文最后一段，总结了最近的成果。
+
+> We watched the first sunrise over the lake. It burst water into flame. And in fiery reflection we see future of all cats: Tribe of Rusing Water, five Clan, four Clan, forest, and lake. We saw your whole journey, from lake to forest and back. The prophecies all came from that first reflected sunrise -- the cat with a pelt of flame who would save the Clans, the silver cat who would save the Tribe of Rusing Water, and finally the four who would carry the last hope not just of the Clans, but of light itself. Now we fear we see a final sunset that ends your story. -- *Rock* and *Midnight*
+>
+> 引子中的部分，总结了重要的历史。
+
+> Learn who to trust. It is heart that knows truth. -- *Midnight* to *Dovewing*
+>
+> Don't close eyes and wait for path to choose you. Choose path and follow it. -- to *Lionblaze*
+>
+> When all cats have closed eyes, we gave the gift of sight to the cat who is blind. You see more than most, but look inside, too. See your own strength. -- to *Jayfeather*
+>
+> 对于三力量的嘱托
+
+# 日志
+
+- 2017/12/10 上个星期终于看完了*TLH*的最后30页，自此完成了前四部曲的阅读。
+- 我下一步打算跳过*Dawn of the Clans*，直接看*AVoS*。不过*The Apprentice's Quest*就很难找，亚马逊上只有精装，比较贵。
 
 # 参考文献
 
