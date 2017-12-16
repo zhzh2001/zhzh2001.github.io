@@ -3,6 +3,19 @@
 @import "theme";
 @import "diff";
 
+.lineno { 
+  color: #ccc; 
+  display:inline-block; 
+  padding: 0 5px; 
+  border-right:5px solid #ccc;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 // Placeholder: $code-block
 %code-block {
   overflow: auto;

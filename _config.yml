@@ -46,7 +46,15 @@ highlighter: rouge
 ## 'redcarpet' is unsupported on GitHub Pages now.
 markdown: kramdown
 kramdown:
-    input: GFM
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
@@ -216,6 +224,7 @@ font:
 social:
   GitHub: https://github.com/zhzh2001
   luogu: https://www.luogu.org/space/show?uid=9406
+  bitbucket: https://bitbucket.org/zhzh2001/
 
 
 # Social Links Icons
@@ -288,11 +297,14 @@ links_layout: inline
 links:
   mdnd: http://blog.csdn.net/mdnd1234
   jzq: http://blog.csdn.net/jzq233jzq
-  SW_Wind: https://swwind.github.io
+  SW_Wind: https://blog.swwind.top/
   szb: https://shenzhebei.github.io
   zhouyuyang: http://blog.csdn.net/zhouyuyang233
   Fop_zz: http://blog.csdn.net/fop_zz
   largecube: http://blog.csdn.net/largecub233
+  clc(a): https://stevenclc.github.io/
+  Typora: https://typora.io/
+  jekyll: http://jekyllcn.com/
 
 
 # ---------------------------------------------------------------
@@ -318,7 +330,7 @@ auto_excerpt:
 post_meta:
   item_text: true
   created_at: true
-  updated_at: false
+  updated_at: true
   categories: true
 
 # Post wordcount display settings
