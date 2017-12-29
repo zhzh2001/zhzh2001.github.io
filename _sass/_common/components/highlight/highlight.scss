@@ -95,7 +95,7 @@ pre {
     }
   }
 
-  .gutter pre {
+  .gutter pre, .rouge-gutter pre {
     padding-left: 10px;
     padding-right: 10px;
     color: map-get($highlight-gutter, color);
@@ -103,7 +103,7 @@ pre {
     background-color: map-get($highlight-gutter, bg-color);
   }
 
-  .code pre {
+  .code pre, .rouge-code pre {
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
@@ -114,7 +114,7 @@ pre {
 }
 
 
-.gutter {
+.gutter, .rouge-gutter {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
