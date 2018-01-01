@@ -3,6 +3,7 @@ layout: post
 title: Introduction to WARRIORS
 tags:
 - intro
+updated: 2018-01-01
 ---
 
 上次在[NOIp2017游记]({% post_url 2017-11-17-noip2017-senior %})中提到了*WARRIORS*小说，实际上这是我近阶段阅读的，从四部曲开始切换到英语版本，可以提高一下英语。仿照*Introduction to Algorithms*，我用了这个题目，对其进行简要的介绍，顺便放一些有趣的摘录。
@@ -105,6 +106,20 @@ tags:
 
 **河族**住在水边，他们不怕水，擅长游泳和捞鱼。
 
+### 会议
+
+#### 森林大会(Gathering)
+
+满月且晴朗的夜晚，在旧森林的四棵树(Fourtrees)或湖区的小岛上进行。四族在森林大会上分享新闻，在气氛比较和谐时，各族之间可以随意交谈。
+
+在*Starlight*中一棵树变成了连接小岛和陆地的独木桥，因此小岛成为理想的会所。
+
+#### 月半集会(Half-Moon Meeting)
+
+月半且晴朗的夜晚，在旧森林的月亮石(Moonstone)或湖区的月池(Moonpool)上进行。只有巫医或巫医学徒参加，巫医相关的仪式也在这时进行。
+
+Moonstone由*Moth Flight*发现，而Moonpool则由*Leafpool*发现，她因此获得了-pool后缀。
+
 ## 部落猫
 
 生活在山区，称为急水部落(Tribe of Rushing Water)，在正传中有古代和现代界限。族群猫共四次前往现代部落，分别在寻找午夜归途、大迁徙、*Outcast*、*Sign of the Moon*中。古代部落只在*Sign of the Moon*中*Jayfeather*穿越访问过一次。
@@ -137,7 +152,7 @@ tags:
 
 由于旧森林被人类完全开发，四族被迫离开旧森林，前往湖区。(参考*TNP*)
 
-天族回到湖区？(在*AVoS*中)
+天族回到湖区？(在*AVoS*中)已确定，根据*Tigerheart's Shadow*中的地图可知。
 
 ## 湖区到山区之旅
 
@@ -196,7 +211,25 @@ tags:
 - 新月夜到了，但是*Brambleclaw*却被*Squirrelpaw*缠上了，六只猫见了面，但是没有任何预言。
 - *Brambleclaw*得知了目的地在太阳沉没之地，*Ravenpaw*确认了其存在。
 - *Brambleclaw*通知了其他族，决定月半前夜四棵树集合出发。
-- to be continued...
+- 在两脚兽地盘遇到了*Purdy*。
+- *Tawnypelt*被老鼠咬伤，*Leafpaw*通过神奇的方法告知*Squirrelpaw*应该用牛蒡根(Burdock Root)处理伤口。
+- 遇到*Midnight*，得知族群必须离开旧森林，寻找新家。
+- 在山区遇到急水部落，但*Stormfur*被关了起来，因为尖石巫师认为他就是预言中的银毛猫，从*Sharptooth*解救部落。
+- 在*Sharptooth*来袭时，*Stormfur*逃了出来。
+- *Stormfur*得到*Silverstream*的指示，决定返回帮助。
+- *Sharptooth*突然来袭，*Feathertail*为了救*Crowpaw*而牺牲了。
+- 剩下的五只猫无奈的向族猫宣布了*Midnight*的预言。
+
+### 性质
+
+正传中最早的一次远距离探索，从旧森林到太阳沉没之地再借道山区返回旧森林，可以成为最远距离的探索。
+
+### 影响
+
+1. 为族群找到了一条生路。
+1. 大迁徙的直接原因。
+1. 后来*Crowpaw*的武士名*Crowfeather*就是为了纪念*Feathertail*，而*Leafpool*又以此来命名*Jayfeather*来怀念*Crowfeather*。
+1. 为后来跨族的探索提供了范本，如*Outcast*和*Long Dry Day*。
 
 # 书籍
 
@@ -307,6 +340,8 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 
 *WARRIORS*中的人物相当多，正传中就应该有几百，虽然很多都只有一个名字。
 
+> 我不喜欢猫物这种说法
+
 ## 分级
 
 分级都是针对一个系列而言的。例如*Firestar*在*TPB*中为$1$，在*TNP*和*P3*中为$3$，在*OTS*中为$2$。
@@ -364,6 +399,12 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 >
 > 对于三力量的嘱托
 
+## 学徒探索
+
+久违的单个PoV叙述，为*Alderpaw*，我就译为赤杨爪，另一种译为桤爪，琥珀色眼睛的暗姜色公猫，尾尖是白色的(white-tipped tail)。他的手足*Sparkpaw*，按照灰机译为烁爪，又译闪爪，橙色的虎斑母猫，也是主要人物。
+
+预言令人难以捉摸：Embrace what your find in the shadows, for only they can clear the sky. 一种译为“拥抱你于暗影之所获，仅其能明朗天空。”
+
 # 我与WARRIORS
 
 我从大约2017年[ZJSX2]({% post_url 2017-04-25-ZJSX2 %})左右开始阅读，目前有一、二部曲的中文版，四部曲的英文平装，另外还有4本中文手册。最近采购了*The Ultimate Guide*和*AVos:TAQ*精装，实在比较贵。
@@ -375,4 +416,3 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 - <http://www.warriorcats.com/>
 - <https://warriors.huijiwiki.com>
 - <http://warriors.wikia.com>
-

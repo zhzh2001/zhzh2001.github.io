@@ -17,6 +17,8 @@ title: 关于
 
 我有一些神奇的OImates，大部分*已知的*博客已经加了*Links*，当前*abandoned*的判定方式是没有更新NOIp2017。
 
+近期只有在周末（包括周五）和节假日会更新，因为我住校。
+
 [^AFO]: Away From OI, 不知道谁想出来的缩写
 [^OI]: Olympiad in Informatics
 [^NOIp]: National Olympiad in Informatics in Provinces
