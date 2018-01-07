@@ -3,7 +3,7 @@ layout: post
 title: Introduction to WARRIORS
 tags:
 - intro
-updated: 2018-01-01
+updated: 2018-01-07
 ---
 
 上次在[NOIp2017游记]({% post_url 2017-11-17-noip2017-senior %})中提到了*WARRIORS*小说，实际上这是我近阶段阅读的，从四部曲开始切换到英语版本，可以提高一下英语。仿照*Introduction to Algorithms*，我用了这个题目，对其进行简要的介绍，顺便放一些有趣的摘录。
@@ -365,7 +365,21 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 
 注：[]内仅为巫医学徒
 
-# 摘录
+## 炭毛(Cinderpelt)
+
+这是我写的第一篇人物评论，实际上就是各处抄一点的总结。受到一篇对鹰霜(*Hawkfrost*)的分析的影响。
+
+| 中文 | 原文 | 父 | 母 | 老师 | 学徒 | OS | TNP | P3 | OTS | AVoS |
+| ---- | --- | -- | -- | ---- | --- | -- | --- | -- | --- | ---- |
+| 炭毛 | Cinderpelt | ？ | 霜毛 | 火星、黄牙 | 叶池 | $2$ | $3$ | - | - | - |
+
+炭毛，灰色母猫，一个我几乎已经遗忘的人物。在《寒冰烈火》成为火心的学徒，在《黄昏战争》中为救栗尾(*Sorreltail*)而被獾杀死。她本该成为武士，但由于可能由虎掌(*Tigerclaw*)的阴谋造成的事故，使她的后腿严重受伤而只能成为巫医。为了实现她的武士梦想，星族给了第二次机会，作为栗尾的幼崽炭心(*Cinderheart*)。于是她给黑莓掌的一条命就是“提供第二次机会”。
+
+她的母亲是霜毛，这个似乎很容易被忽略。值得注意的是，她就是《呼唤野性》中被爪脸(*Clawface*)掠走的幼崽之一，这个可以通过推断得出。然后她就成为了新武士火心的活泼学徒*Cinderpaw*，手足蕨毛(*Brackenfur*)的老师则是灰条(*Graystripe*)。不得不说，一般母猫比公猫活泼，这里也不例外，炭毛和蕨毛基本是相对的。除此之外，她也比较机智，在当时副族长虎掌问及灰条的情况时，抢在火心前回答，隐瞒了他们在河族的经历。
+
+然而，在成为巫医学徒后，她一度无法面对现实，首先是后腿残疾的问题，然后是没能救银溪(*Silverstream*)。TBC
+
+# 摘录与感想
 
 摘录包括预言(Prophecy)、预兆(Omen)和其他句子。我前三部曲看的是中文，四部曲看的是英文，对于中文版用章定位，英文版用页定位。
 
@@ -401,9 +415,9 @@ PoV: *Lionblaze*, *Jayfeather*, *Dovewing*, *Ivypool*, *Flametail*
 
 ## 学徒探索
 
-久违的单个PoV叙述，为*Alderpaw*，我就译为赤杨爪，另一种译为桤爪，琥珀色眼睛的暗姜色公猫，尾尖是白色的(white-tipped tail)。他的手足*Sparkpaw*，按照灰机译为烁爪，又译闪爪，橙色的虎斑母猫，也是主要人物。
+久违的单个PoV叙述，为*Alderpaw*，我就译为赤杨爪，另一种译为桤爪，琥珀色眼睛的暗姜色公猫，尾尖是白色的(white-tipped tail)。他的手足*Sparkpaw*，按照灰机译为烁爪，又译闪爪，橙色的虎斑母猫，也是主要人物。他们的老师是*Molewhisker*和*Cherryfall*，也是手足，上次在群星之战中出现报信的两个学徒。当然，后来赤杨爪转行巫医，老师也不知是叶池(*Leafpool*)还是松鸦羽(*Jayfeather*)。
 
-预言令人难以捉摸：Embrace what your find in the shadows, for only they can clear the sky. 一种译为“拥抱你于暗影之所获，仅其能明朗天空。”
+预言令人难以捉摸：Embrace what your find in the shadows, for only they can clear the sky. 一种译为“拥抱你于暗影之所获，仅其能明朗天空。”因此赤杨爪、烁爪、沙风(*Sandstorm*)和他们的（原）老师踏上了探索之旅（台湾写法），目标是遥远的天族。
 
 # 我与WARRIORS
 
